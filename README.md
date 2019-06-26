@@ -4,7 +4,7 @@ Symfony functional Event Bundle
 ## Install
 Create a config file `config/packages/winzana_model_event.yaml`. 
 ```yaml
-model_event:
+event:
     mapping:
         paths: ['%kernel.project_dir%/src/CommandHandler']
 
