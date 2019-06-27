@@ -28,11 +28,12 @@ class EventExtension extends Extension
                         continue;
                     }
                     $eventName = call_user_func(array($class, 'getEventName'));
+                    $priority = call_user_func(array($class, 'getPriority'));
 
                     $listener = new Definition($class);
                     $listener->setPrivate(true);
                     $listener->setAutowired(true);
-                    $listener->addTag('kernel.event_listener', ['event' => $eventName]);
+                    $listener->addTag('kernel.event_listener', ['event' => $eventName, 'priority' => $priority]);
                     $container->setDefinition(sprintf('event.%s', AnnotationParser::slug($class)), $listener);
                 }
             }

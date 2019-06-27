@@ -47,5 +47,10 @@ final class CreateUserCommandHandler implements EventInterface
         return 'kernel.request';
     }
 
+    public function getPriority(): int
+    {
+        return 10;
+    }
+
 }
 ```
